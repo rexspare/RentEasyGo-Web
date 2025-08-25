@@ -1,13 +1,15 @@
-/* Container that holds both distortion and content */
+/* Hero Container */
 .hero-wrapper {
   position: relative;
   width: 100%;
   height: 100vh;
-  /* Full viewport height */
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
+/* Background Image */
 .hero-background {
   position: absolute;
   top: 0;
@@ -19,87 +21,369 @@
   background-position: center;
   background-repeat: no-repeat;
   z-index: 0;
-  pointer-events: none;
+  animation: heroBackgroundZoom 20s ease-in-out infinite alternate;
 }
-/* Background distortion layer */
-.hero-distortion-bg,
-.distortion-wrapper {
+
+@keyframes heroBackgroundZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+/* Gradient Overlay */
+.hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  /* Prevent mouse interaction on background */
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  z-index: 1;
 }
 
-/* Foreground content (logo container) */
+/* Main Content Container */
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 2rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.hero-content.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Text Container */
+.hero-text-container {
+  margin-bottom: 3rem;
+}
+
+/* Main Title */
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+  letter-spacing: -2px;
+}
+
+@keyframes titleGlow {
+  0% {
+    filter: drop-shadow(0 0 20px rgba(85, 173, 161, 0.3));
+  }
+  100% {
+    filter: drop-shadow(0 0 30px rgba(85, 173, 161, 0.6));
+  }
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--white);
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  animation: subtitleFadeIn 1s ease-out 0.3s both;
+}
+
+@keyframes subtitleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Description */
+.hero-description {
+  font-family: 'Inter', sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  animation: descriptionFadeIn 1s ease-out 0.6s both;
+}
+
+@keyframes descriptionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CTA Container */
+.hero-cta-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  animation: ctaFadeIn 1s ease-out 0.9s both;
+}
+
+@keyframes ctaFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Primary CTA Button */
+.hero-cta-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary2) 100%);
+  color: var(--white);
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(85, 173, 161, 0.3);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.hero-cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(85, 173, 161, 0.4);
+  background: linear-gradient(135deg, var(--primary2) 0%, var(--primary) 100%);
+}
+
+.hero-cta-primary:active {
+  transform: translateY(-1px);
+}
+
+/* Secondary CTA Button */
+.hero-cta-secondary {
+  background: transparent;
+  color: var(--white);
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 2px solid var(--white);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+}
+
+.hero-cta-secondary:hover {
+  background: var(--white);
+  color: var(--black);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Floating Elements */
+.hero-floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
-  /* Vertical centering */
-  justify-content: center;
-  /* Horizontal centering */
-  padding: 0 1rem;
-  text-align: center;
-}
-
-/* Logo styling */
-.hero-logo {
-  width: 800px;
-  max-width: 90%;
-  transition: width 0.5s ease-in-out;
-}
-
-.hero-subtitle {
+  gap: 0.5rem;
+  color: var(--white);
   font-family: 'Inter', sans-serif;
-  color: white;
-  font-size: 4rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  line-height: 1.4;
-  text-shadow:
-    -2px -2px 0 #000,
-    2px -2px 0 #000,
-    -2px 2px 0 #000,
-    2px 2px 0 #000;
+  font-size: 0.9rem;
+  font-weight: 500;
+  animation: float 6s ease-in-out infinite;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive breakpoints for logo scaling */
+.floating-card-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-card-2 {
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.floating-card-3 {
+  bottom: 25%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+.card-icon {
+  font-size: 1.2rem;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  z-index: 3;
+  animation: scrollIndicatorFade 2s ease-out 1.5s both;
+}
+
+@keyframes scrollIndicatorFade {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.scroll-arrow {
+  width: 2px;
+  height: 30px;
+  background: linear-gradient(to bottom, var(--primary), transparent);
+  border-radius: 1px;
+  animation: scrollArrow 2s ease-in-out infinite;
+}
+
+@keyframes scrollArrow {
+  0%, 100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(1.5);
+    opacity: 0.7;
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 1200px) {
-  .hero-logo {
-    width: 700px;
+  .hero-title {
+    font-size: 3.5rem;
   }
-}
-
-@media (max-width: 1000px) {
-  .hero-logo {
-    width: 600px;
-  }
-}
-
-@media (max-width: 860px) {
-  .hero-logo {
-    width: 450px;
-  }
-
+  
   .hero-subtitle {
-    font-size: 3rem;
+    font-size: 1.5rem;
+  }
+  
+  .floating-card {
+    display: none;
   }
 }
 
-@media (max-width: 650px) {
-  .hero-logo {
-    width: 300px;
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 0 1rem;
+  }
+  
+  .hero-title {
+    font-size: 2.8rem;
+    letter-spacing: -1px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .hero-cta-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    width: 100%;
+    max-width: 280px;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-logo {
-    width: 220px;
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+  }
+  
+  .scroll-indicator {
+    bottom: 1rem;
   }
 }

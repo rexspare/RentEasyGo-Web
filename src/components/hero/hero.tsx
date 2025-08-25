@@ -1,17 +1,73 @@
+import { useEffect, useState } from "react";
 import "./hero.css";
 
 const Hero = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger animations after component mounts
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="hero-wrapper" id="Hero-ID">
       {/* Background Image */}
       <div className="hero-background" />
 
+      {/* Gradient Overlay */}
+      <div className="hero-overlay" />
+
       {/* Foreground Content */}
-      <div className="hero-content">
-        <span className="hero-subtitle">
-          SOMETHING BIG IS COOKING<br />BENEATH THE SURFACE
-        </span>
+      <div className={`hero-content ${isLoaded ? 'loaded' : ''}`}>
+        <div className="hero-text-container">
+          <h1 className="hero-title">
+            RentEasyGo
+          </h1>
+          <p className="hero-subtitle">
+            SOMETHING BIG IS COOKING<br />BENEATH THE SURFACE
+          </p>
+          <p className="hero-description">
+            Seeking visionary investors to help bring this to life.
+          </p>
+
+          <div className="hero-cta-container">
+            <button className="hero-cta-primary"
+              onClick={() => window.open("https://www.linkedin.com/company/rent-easy-go", "_blank", "noopener,noreferrer")}
+            >
+              Get Started
+            </button>
+
+            <button className="hero-cta-secondary"
+              onClick={() => window.open("https://calendly.com/renteasygo/new-meeting", "_blank", "noopener,noreferrer")}
+            >
+              Invest
+            </button>
+          </div>
+        </div>
+
+        {/* Floating Elements */}
+        <div className="hero-floating-elements">
+          <div className="floating-card floating-card-1">
+            <div className="card-icon">🏠</div>
+            <span>Smart Rentals</span>
+          </div>
+          <div className="floating-card floating-card-2">
+            <div className="card-icon">⚡</div>
+            <span>Fast Process</span>
+          </div>
+          <div className="floating-card floating-card-3">
+            <div className="card-icon">🔒</div>
+            <span>Secure</span>
+          </div>
+        </div>
       </div>
+
+      {/* Scroll Indicator */}
+      {/* <div className="scroll-indicator">
+        <div className="scroll-arrow"></div>
+        <span>Scroll to explore</span>
+      </div> */}
     </div>
   );
 };

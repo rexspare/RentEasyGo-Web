@@ -49,7 +49,7 @@ const Navbar = () => {
 
             </ul>
 
-            <MenuIcon color='white' className='menu-icon' onClick={toggleMenu} />
+            {/* <MenuIcon color='white' className='menu-icon' onClick={toggleMenu} /> */}
 
         </nav>
     )
