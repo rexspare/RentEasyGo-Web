@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import './navbar.css'
-import logo from '../../assets/images/logo-transparent.png'
-import { Link, Element } from 'react-scroll';
 import { MenuIcon } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-scroll';
+import logo from '../../assets/images/logo-transparent.png';
+import './navbar.css';
 
 const Navbar = () => {
     const [sticky, setsticky] = useState(false)
@@ -41,7 +41,7 @@ const Navbar = () => {
                         href="https://calendly.com/renteasygo/new-meeting"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn navbar-btn"
+                        className={mobileMenu ? "btn navbar-btn" : "btn navbar-btn"}
                     >
                         Are you an Invester?
                     </a>
