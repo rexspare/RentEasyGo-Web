@@ -1,4 +1,3 @@
-import { MenuIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import logo from '../../assets/images/logo-transparent.png';
@@ -6,7 +5,6 @@ import './navbar.css';
 
 const Navbar = () => {
     const [sticky, setsticky] = useState(false)
-    const [mobileMenu, setmobileMenu] = useState(false)
 
     useEffect(() => {
         const subscribe = window.addEventListener("scroll", () => {
@@ -16,9 +14,6 @@ const Navbar = () => {
         return subscribe
     }, [])
 
-    const toggleMenu = () => {
-        setmobileMenu((prev) => !prev)
-    }
 
 
     return (
@@ -41,7 +36,7 @@ const Navbar = () => {
                         href="https://calendly.com/renteasygo/new-meeting"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={mobileMenu ? "btn navbar-btn" : "btn navbar-btn"}
+                        className={"btn navbar-btn"}
                     >
                         Are you an Invester?
                     </a>
@@ -49,7 +44,6 @@ const Navbar = () => {
 
             </ul>
 
-            {/* <MenuIcon color='white' className='menu-icon' onClick={toggleMenu} /> */}
 
         </nav>
     )
