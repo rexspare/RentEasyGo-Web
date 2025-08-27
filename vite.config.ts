@@ -5,7 +5,6 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss(),],
-  base: '/RentEasyGo-Web',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'), // <-- Set alias
