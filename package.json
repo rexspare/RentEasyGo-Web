@@ -2,6 +2,7 @@
   "name": "RentEasyGo-Web",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://rexspare.github.io/RentEasyGo-Web/",
   "type": "module",
   "scripts": {
     "dev": "vite",
