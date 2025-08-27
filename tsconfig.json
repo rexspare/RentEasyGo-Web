@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "types": [
+      "node"
+    ],
+    "moduleResolution": "Node",
+    "target": "ESNext",
+    "module": "ESNext",
     "baseUrl": ".",
     "paths": {
       "@/*": [
