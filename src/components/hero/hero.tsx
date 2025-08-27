@@ -25,7 +25,7 @@ const Hero = () => {
             RentEasyGo
           </h1>
           <p className="hero-subtitle">
-            SOMETHING BIG IS COOKING<br />BENEATH THE SURFACE
+           Innovation rarely makes noise<br />until it launches.
           </p>
           <p className="hero-description">
             Seeking visionary investors to help bring this to life.

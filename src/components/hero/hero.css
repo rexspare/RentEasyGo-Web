@@ -99,6 +99,7 @@
 /* Subtitle */
 .hero-subtitle {
   font-family: 'Space Grotesk', sans-serif;
+  text-transform: uppercase;
   color: var(--white);
   font-size: 1.8rem;
   font-weight: 500;
