@@ -108,7 +108,7 @@ const WaitingList = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -117,7 +117,7 @@ const WaitingList = () => {
 
     try {
       // Send data to Google Sheets via Google Apps Script
-      const response = await fetch('https://script.google.com/macros/s/AKfycbx-gF1xSzy28iDSEQ0UEv-BKVrhoWSohOlfqeTdTvXcj55z_2p1Th-tgNK-2klhy-Nm/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbx-gF1xSzy28iDSEQ0UEv-BKVrhoWSohOlfqeTdTvXcj55z_2p1Th-tgNK-2klhy-Nm/exec', {
         method: 'POST',
         mode: 'no-cors', // Required for Google Apps Script
         headers: {
@@ -135,7 +135,7 @@ const WaitingList = () => {
       // Since we're using no-cors mode, we can't check the response status
       // But we'll assume success if no error is thrown
       console.log("Waiting list signup submitted:", formData);
-      
+
       setIsSubmitted(true);
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -154,7 +154,7 @@ const WaitingList = () => {
           <div className="success-icon">✓</div>
           <h2>You're on the list!</h2>
           <p>Thank you for joining our waiting list. We'll notify you as soon as RentEasyGo is available in your area.</p>
-          <button 
+          <button
             className="success-cta"
             onClick={() => {
               setIsSubmitted(false);
@@ -206,121 +206,121 @@ const WaitingList = () => {
               <p>Be among the first to experience the future of rental management. Get exclusive early access and priority updates when RentEasyGo launches.</p>
             </div>
 
-        <form className="waiting-list-form" onSubmit={handleSubmit}>
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="fullName">
-                <span className="label-text">Full Name</span>
-                <span className="required">*</span>
-              </label>
-              <div className="input-wrapper">
-                <input
-                  type="text"
-                  id="fullName"
-                  name="fullName"
-                  value={formData.fullName}
-                  onChange={handleInputChange}
-                  className={errors.fullName ? "error" : ""}
-                  placeholder="John Doe"
-                />
-                <div className="input-icon">👤</div>
+            <form className="waiting-list-form" onSubmit={handleSubmit}>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="fullName">
+                    <span className="label-text">Full Name</span>
+                    <span className="required">*</span>
+                  </label>
+                  <div className="input-wrapper">
+                    <input
+                      type="text"
+                      id="fullName"
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleInputChange}
+                      className={errors.fullName ? "error" : ""}
+                      placeholder="John Doe"
+                    />
+                    <div className="input-icon">👤</div>
+                  </div>
+                  {errors.fullName && <span className="error-message">{errors.fullName}</span>}
+                </div>
               </div>
-              {errors.fullName && <span className="error-message">{errors.fullName}</span>}
-            </div>
-          </div>
 
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="email">
-                <span className="label-text">Email Address</span>
-                <span className="required">*</span>
-              </label>
-              <div className="input-wrapper">
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className={errors.email ? "error" : ""}
-                  placeholder="john@example.com"
-                />
-                <div className="input-icon">✉️</div>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="email">
+                    <span className="label-text">Email Address</span>
+                    <span className="required">*</span>
+                  </label>
+                  <div className="input-wrapper">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className={errors.email ? "error" : ""}
+                      placeholder="john@example.com"
+                    />
+                    <div className="input-icon">✉️</div>
+                  </div>
+                  {errors.email && <span className="error-message">{errors.email}</span>}
+                </div>
               </div>
-              {errors.email && <span className="error-message">{errors.email}</span>}
-            </div>
-          </div>
 
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="country">
-                <span className="label-text">Country</span>
-                <span className="required">*</span>
-              </label>
-              <div className="select-wrapper">
-                <select
-                  id="country"
-                  name="country"
-                  value={formData.country}
-                  onChange={handleInputChange}
-                  className={errors.country ? "error" : ""}
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="country">
+                    <span className="label-text">Country</span>
+                    <span className="required">*</span>
+                  </label>
+                  <div className="select-wrapper">
+                    <select
+                      id="country"
+                      name="country"
+                      value={formData.country}
+                      onChange={handleInputChange}
+                      className={errors.country ? "error" : ""}
+                    >
+                      <option value="">Choose your country</option>
+                      {countries.map(country => (
+                        <option key={country} value={country}>{country}</option>
+                      ))}
+                    </select>
+                    <div className="select-arrow">▼</div>
+                  </div>
+                  {errors.country && <span className="error-message">{errors.country}</span>}
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="phone">
+                    <span className="label-text">Phone Number</span>
+                    <span className="optional">(Optional)</span>
+                  </label>
+                  <div className="input-wrapper">
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className={errors.phone ? "error" : ""}
+                      placeholder="+1 (555) 123-4567"
+                    />
+                    <div className="input-icon">📱</div>
+                  </div>
+                  {errors.phone && <span className="error-message">{errors.phone}</span>}
+                </div>
+              </div>
+
+              <div className="submit-container">
+                <button
+                  type="submit"
+                  className="submit-button"
+                  disabled={isSubmitting}
                 >
-                  <option value="">Choose your country</option>
-                  {countries.map(country => (
-                    <option key={country} value={country}>{country}</option>
-                  ))}
-                </select>
-                <div className="select-arrow">▼</div>
+                  <span className="button-text">
+                    {isSubmitting ? "Joining Waitlist..." : "Join Waitlist"}
+                  </span>
+                  <span className="button-icon">
+                    {isSubmitting ? "⏳" : "→"}
+                  </span>
+                </button>
               </div>
-              {errors.country && <span className="error-message">{errors.country}</span>}
-            </div>
-          </div>
 
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="phone">
-                <span className="label-text">Phone Number</span>
-                <span className="optional">(Optional)</span>
-              </label>
-              <div className="input-wrapper">
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className={errors.phone ? "error" : ""}
-                  placeholder="+1 (555) 123-4567"
-                />
-                <div className="input-icon">📱</div>
+              <div className="privacy-section">
+                <div className="privacy-icon">🔒</div>
+                <p className="privacy-note">
+                  By joining our waitlist, you agree to receive updates about RentEasyGo.
+                  We respect your privacy and will never share your information with third parties.
+                </p>
               </div>
-              {errors.phone && <span className="error-message">{errors.phone}</span>}
-            </div>
-          </div>
-
-          <div className="submit-container">
-            <button 
-              type="submit" 
-              className="submit-button"
-              disabled={isSubmitting}
-            >
-              <span className="button-text">
-                {isSubmitting ? "Joining Waitlist..." : "Join Waitlist"}
-              </span>
-              <span className="button-icon">
-                {isSubmitting ? "⏳" : "→"}
-              </span>
-            </button>
-          </div>
-
-          <div className="privacy-section">
-            <div className="privacy-icon">🔒</div>
-            <p className="privacy-note">
-              By joining our waitlist, you agree to receive updates about RentEasyGo. 
-              We respect your privacy and will never share your information with third parties.
-            </p>
-          </div>
-        </form>
+            </form>
           </div>
 
           {/* Sidebar Content */}
