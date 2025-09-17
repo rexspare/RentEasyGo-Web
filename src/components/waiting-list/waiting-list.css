@@ -671,6 +671,11 @@
 .waiting-list-success {
   text-align: center;
   padding: 2rem;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .success-icon {

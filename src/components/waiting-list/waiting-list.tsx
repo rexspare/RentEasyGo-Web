@@ -137,6 +137,14 @@ const WaitingList = () => {
       console.log("Waiting list signup submitted:", formData);
 
       setIsSubmitted(true);
+      
+      // Scroll to the success message
+      setTimeout(() => {
+        const element = document.getElementById('waiting-list');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
     } catch (error) {
       console.error("Error submitting form:", error);
       // Still show success since no-cors mode doesn't allow us to check response
@@ -149,20 +157,93 @@ const WaitingList = () => {
 
   if (isSubmitted) {
     return (
-      <div className="waiting-list-container">
-        <div className="waiting-list-success">
-          <div className="success-icon">✓</div>
-          <h2>You're on the list!</h2>
-          <p>Thank you for joining our waiting list. We'll notify you as soon as RentEasyGo is available in your area.</p>
-          <button
-            className="success-cta"
-            onClick={() => {
-              setIsSubmitted(false);
-              setFormData({ fullName: "", email: "", country: "", phone: "" });
-            }}
-          >
-            Add Another Person
-          </button>
+      <div className="waiting-list-container" id="waiting-list">
+        <div className="waiting-list-wrapper">
+          {/* Features Section */}
+          <div className="features-section">
+            <div className="section-header">
+              <h2>Why Join Our Waitlist?</h2>
+              <p>Get exclusive benefits and be part of the rental revolution</p>
+            </div>
+            <div className="features-grid">
+              <div className="feature-card">
+                <div className="feature-icon">⚡</div>
+                <h3>Early Access</h3>
+                <p>Be the first to experience our revolutionary rental platform</p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon">🎯</div>
+                <h3>Priority Support</h3>
+                <p>Get dedicated support and exclusive features</p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon">💎</div>
+                <h3>Exclusive Benefits</h3>
+                <p>Special pricing and premium features for early adopters</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Content Row - Success Message */}
+          <div className="main-content-row">
+            <div className="waiting-list-content">
+              <div className="waiting-list-success">
+                <div className="success-icon">✓</div>
+                <h2>You're on the list!</h2>
+                <p>Thank you for joining our waiting list. We'll notify you as soon as RentEasyGo is available in your area.</p>
+                <button
+                  className="success-cta"
+                  onClick={() => {
+                    setIsSubmitted(false);
+                    setFormData({ fullName: "", email: "", country: "", phone: "" });
+                  }}
+                >
+                  Add Another Person
+                </button>
+              </div>
+            </div>
+
+            {/* Sidebar Content */}
+            <div className="content-sidebar">
+              {/* Stats Section */}
+              <div className="stats-section">
+                <div className="stats-grid">
+                  <div className="stat-item">
+                    <div className="stat-number">500+</div>
+                    <div className="stat-label">Early Adopters</div>
+                  </div>
+                  <div className="stat-item">
+                    <div className="stat-number">50+</div>
+                    <div className="stat-label">Countries</div>
+                  </div>
+                  <div className="stat-item">
+                    <div className="stat-number">99%</div>
+                    <div className="stat-label">Satisfaction</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Additional Info Card */}
+              <div className="info-card">
+                <div className="info-icon">💡</div>
+                <h3>What to Expect</h3>
+                <ul className="info-list">
+                  <li>Exclusive early access to the platform</li>
+                  <li>Priority customer support</li>
+                  <li>Special launch pricing</li>
+                  <li>Regular updates on development progress</li>
+                  <li>Invitation to beta testing program</li>
+                </ul>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="trust-card">
+                <div className="trust-icon">🔒</div>
+                <h3>Your Privacy Matters</h3>
+                <p>We respect your privacy and will never share your information with third parties. You can unsubscribe at any time.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
