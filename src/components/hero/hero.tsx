@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-scroll";
 import "./hero.css";
 
 const Hero = () => {
@@ -32,11 +33,11 @@ const Hero = () => {
           </p>
 
           <div className="hero-cta-container">
-            <button className="hero-cta-primary"
-              onClick={() => window.open("https://www.linkedin.com/company/rent-easy-go", "_blank", "noopener,noreferrer")}
-            >
-              Get Started
-            </button>
+            <Link to="waiting-list" smooth={true} offset={-100} duration={1000}>
+              <button className="hero-cta-primary">
+                Join Waiting List
+              </button>
+            </Link>
 
             <button className="hero-cta-secondary"
               onClick={() => window.open("https://calendly.com/renteasygo/new-meeting", "_blank", "noopener,noreferrer")}
@@ -64,10 +65,10 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      {/* <div className="scroll-indicator">
+      <div className="scroll-indicator">
         <div className="scroll-arrow"></div>
-        <span>Scroll to explore</span>
-      </div> */}
+        <span>Join Waiting List</span>
+      </div>
     </div>
   );
 };

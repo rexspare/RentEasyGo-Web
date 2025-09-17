@@ -169,7 +169,7 @@
 .hero-cta-primary {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary2) 100%);
   color: var(--white);
-  padding: 16px 32px;
+  padding: 15px 32px;
   font-size: 1.1rem;
   font-weight: 600;
   border: none;
@@ -367,6 +367,8 @@
   .hero-cta-secondary {
     width: 100%;
     max-width: 280px;
+    padding: 15px 32px;
+    font-size: 1.1rem;
   }
 }
 
@@ -386,5 +388,13 @@
   
   .scroll-indicator {
     bottom: 1rem;
+  }
+  
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    width: 100%;
+    max-width: 280px;
+    padding: 15px 24px;
+    font-size: 1rem;
   }
 }

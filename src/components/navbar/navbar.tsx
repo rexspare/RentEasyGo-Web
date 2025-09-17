@@ -23,14 +23,6 @@ const Navbar = () => {
                 <img src={logo} alt='' className='logo' />
             </Link>
             <ul >
-                {/* <li><Link to="About-ID" smooth={true} offset={-200} duration={1000}>About</Link></li>
-                <li><Link to="Services-ID" smooth={true} offset={-200} duration={1000}>Services</Link></li>
-                <li><Link to="Projects-ID" smooth={true} offset={-200} duration={1000}>Projects</Link></li>
-                <li><Link to="Team-ID" smooth={true} offset={-200} duration={1000}>Team</Link></li>
-                <li><Link to="Testimonials-ID" smooth={true} offset={-200} duration={1000}>Testimonials</Link></li> */}
-                {/* <li ><Link to="Contact-ID" smooth={true} offset={-200} duration={1000}  className='btn navbar-btn'>Are you an Invester?</Link></li> */}
-
-
                 <li>
                     <a
                         href="https://calendly.com/renteasygo/new-meeting"
@@ -41,7 +33,6 @@ const Navbar = () => {
                         Are you an Invester?
                     </a>
                 </li>
-
             </ul>
 
 
