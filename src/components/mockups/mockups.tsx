@@ -1,4 +1,8 @@
 import "./mockups.css";
+import homeImage from "../../assets/images/mockups/home.png";
+import bidImage from "../../assets/images/mockups/bid.png";
+import chatImage from "../../assets/images/mockups/chat.png";
+import profileImage from "../../assets/images/mockups/profile.png";
 
 const Mockups = () => {
   const mockups = [
@@ -6,25 +10,25 @@ const Mockups = () => {
       title: "Home Screen",
       description: "Discover properties with smart filters and location-based search",
       screen: "home",
-      image: "/src/assets/images/home.png"
+      image: homeImage
     },
     {
       title: "Bidding Screen",
       description: "Place competitive bids on your favorite properties",
       screen: "bidding",
-      image: "/src/assets/images/bid.png"
+      image: bidImage
     },
     {
       title: "Chat Screen",
       description: "Communicate securely with landlords and renters",
       screen: "chat",
-      image: "/src/assets/images/chat.png"
+      image: chatImage
     },
     {
       title: "Profile Screen",
       description: "Switch between renter and landlord modes seamlessly",
       screen: "profile",
-      image: "/src/assets/images/profile.png"
+      image: profileImage
     }
   ];
 
