@@ -6,25 +6,25 @@ const Mockups = () => {
       title: "Home Screen",
       description: "Discover properties with smart filters and location-based search",
       screen: "home",
-      image: "/src/assets/images/mockups/home.png"
+      image: "/src/assets/images/home.png"
     },
     {
       title: "Bidding Screen",
       description: "Place competitive bids on your favorite properties",
       screen: "bidding",
-      image: "/src/assets/images/mockups/bid.png"
+      image: "/src/assets/images/bid.png"
     },
     {
       title: "Chat Screen",
       description: "Communicate securely with landlords and renters",
       screen: "chat",
-      image: "/src/assets/images/mockups/chat.png"
+      image: "/src/assets/images/chat.png"
     },
     {
       title: "Profile Screen",
       description: "Switch between renter and landlord modes seamlessly",
       screen: "profile",
-      image: "/src/assets/images/mockups/profile.png"
+      image: "/src/assets/images/profile.png"
     }
   ];
 
