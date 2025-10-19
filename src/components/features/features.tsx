@@ -13,6 +13,11 @@ const Features = () => {
       description: "Build trust through identity verification badges ensuring secure and reliable transactions."
     },
     {
+      icon: "💰",
+      title: "No Commission Fees",
+      description: "Zero commission charges from either side - renters and landlords keep more of their money."
+    },
+    {
       icon: "💬",
       title: "In-App Chat",
       description: "Communicate directly within the platform while keeping contact details private for safety."
@@ -31,6 +36,11 @@ const Features = () => {
       icon: "📍",
       title: "Location-Based Search",
       description: "Find or list properties effortlessly using Google Maps and advanced filters."
+    },
+    {
+      icon: "🚀",
+      title: "More Features Coming Soon",
+      description: "We’re just getting started! Exciting new tools and updates are on the way in future releases."
     }
   ];
 
