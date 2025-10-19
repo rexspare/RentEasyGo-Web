@@ -276,14 +276,16 @@
 }
 
 .input-wrapper,
-.select-wrapper {
+.select-wrapper,
+.textarea-wrapper {
   position: relative;
   display: flex;
   align-items: center;
 }
 
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
   width: 100%;
   padding: 1rem 3rem 1rem 1rem;
   border: 2px solid rgba(85, 173, 161, 0.3);
@@ -297,6 +299,16 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+}
+
+.textarea-icon {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .input-icon {
@@ -319,7 +331,8 @@
 }
 
 .form-group input:focus,
-.form-group select:focus {
+.form-group select:focus,
+.form-group textarea:focus {
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(85, 173, 161, 0.2);
@@ -328,19 +341,33 @@
 }
 
 .form-group input:focus + .input-icon,
-.form-group select:focus + .select-arrow {
+.form-group select:focus + .select-arrow,
+.form-group textarea:focus + .textarea-icon {
   opacity: 1;
   color: var(--primary);
 }
 
 .form-group input.error,
-.form-group select.error {
+.form-group select.error,
+.form-group textarea.error {
   border-color: #e74c3c;
   box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
 }
 
-.form-group input::placeholder {
+.form-group input::placeholder,
+.form-group textarea::placeholder {
   color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.5;
+  padding-bottom: 2.5rem;
+}
+
+.textarea-wrapper {
+  align-items: flex-start;
 }
 
 .error-message {

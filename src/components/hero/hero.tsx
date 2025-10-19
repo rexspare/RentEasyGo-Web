@@ -26,48 +26,48 @@ const Hero = () => {
             RentEasyGo
           </h1>
           <p className="hero-subtitle">
-           Innovation rarely makes noise<br />until it launches.
+            Smarter, Faster, Fairer<br />Property Renting
           </p>
           <p className="hero-description">
-            Seeking visionary investors to help bring this to life.
+          The modern rental marketplace connecting renters and landlords through transparent bidding — fair, verified, and fast.
           </p>
 
           <div className="hero-cta-container">
             <Link to="waiting-list" smooth={true} offset={-100} duration={1000}>
               <button className="hero-cta-primary">
-                Join Waiting List
+                Get Early Access
               </button>
             </Link>
 
             <button className="hero-cta-secondary"
               onClick={() => window.open("https://calendly.com/renteasygo/new-meeting", "_blank", "noopener,noreferrer")}
             >
-              Invest
+              Become an Investor
             </button>
           </div>
         </div>
 
         {/* Floating Elements */}
-        <div className="hero-floating-elements">
+        {/* <div className="hero-floating-elements">
           <div className="floating-card floating-card-1">
-            <div className="card-icon">🏠</div>
-            <span>Smart Rentals</span>
+            <div className="card-icon">🎯</div>
+            <span>Smart Bidding</span>
           </div>
           <div className="floating-card floating-card-2">
-            <div className="card-icon">⚡</div>
-            <span>Fast Process</span>
+            <div className="card-icon">✅</div>
+            <span>Verified Users</span>
           </div>
           <div className="floating-card floating-card-3">
-            <div className="card-icon">🔒</div>
-            <span>Secure</span>
+            <div className="card-icon">💬</div>
+            <span>In-App Chat</span>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Scroll Indicator */}
       <div className="scroll-indicator">
         <div className="scroll-arrow"></div>
-        <span>Join Waiting List</span>
+        <span>Discover More</span>
       </div>
     </div>
   );

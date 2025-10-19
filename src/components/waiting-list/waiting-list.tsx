@@ -6,6 +6,7 @@ interface FormData {
   email: string;
   country: string;
   phone: string;
+  comments: string;
 }
 
 interface FormErrors {
@@ -13,6 +14,7 @@ interface FormErrors {
   email?: string;
   country?: string;
   phone?: string;
+  comments?: string;
 }
 
 const WaitingList = () => {
@@ -21,6 +23,7 @@ const WaitingList = () => {
     email: "",
     country: "",
     phone: "",
+    comments: "",
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -90,7 +93,7 @@ const WaitingList = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -117,7 +120,7 @@ const WaitingList = () => {
 
     try {
       // Send data to Google Sheets via Google Apps Script
-      await fetch('https://script.google.com/macros/s/AKfycbx-gF1xSzy28iDSEQ0UEv-BKVrhoWSohOlfqeTdTvXcj55z_2p1Th-tgNK-2klhy-Nm/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbwsMCd7tVLMVaCAEFjADPxOw--6HDNAZQgI8LoXAmPYFMmmMPfsPKTkm8wcqEIkhpJ7/exec', {
         method: 'POST',
         mode: 'no-cors', // Required for Google Apps Script
         headers: {
@@ -128,6 +131,7 @@ const WaitingList = () => {
           email: formData.email,
           country: formData.country,
           phone: formData.phone || '',
+          comments: formData.comments || '',
           timestamp: new Date().toISOString()
         })
       });
@@ -195,7 +199,7 @@ const WaitingList = () => {
                   className="success-cta"
                   onClick={() => {
                     setIsSubmitted(false);
-                    setFormData({ fullName: "", email: "", country: "", phone: "" });
+                    setFormData({ fullName: "", email: "", country: "", phone: "", comments: "" });
                   }}
                 >
                   Add Another Person
@@ -376,6 +380,28 @@ const WaitingList = () => {
                     <div className="input-icon">📱</div>
                   </div>
                   {errors.phone && <span className="error-message">{errors.phone}</span>}
+                </div>
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="comments">
+                    <span className="label-text">Comments or Thoughts</span>
+                    <span className="optional">(Optional)</span>
+                  </label>
+                  <div className="textarea-wrapper">
+                    <textarea
+                      id="comments"
+                      name="comments"
+                      value={formData.comments}
+                      onChange={handleInputChange}
+                      className={errors.comments ? "error" : ""}
+                      placeholder="Share your thoughts about RentEasyGo, what features you'd like to see, or any questions you have..."
+                      rows={4}
+                    />
+                    <div className="textarea-icon">💭</div>
+                  </div>
+                  {errors.comments && <span className="error-message">{errors.comments}</span>}
                 </div>
               </div>
 
