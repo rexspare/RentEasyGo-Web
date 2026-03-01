@@ -1,47 +1,59 @@
+import { motion } from 'framer-motion';
+import { Zap, Target, Lock } from 'lucide-react';
 import "./overview.css";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 16 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-40px" },
+  transition: { duration: 0.45, ease: "easeOut" as const },
+};
+
+const overviewItems = [
+  {
+    icon: Zap,
+    title: "Fast & Efficient",
+    description: "A secure, pay-to-bid model ensures only serious renters participate—no slow back-and-forth or unverified interest.",
+  },
+  {
+    icon: Target,
+    title: "Fair Competition",
+    description: "Save time for landlords and give everyone equal opportunity through our transparent bidding system.",
+  },
+  {
+    icon: Lock,
+    title: "Secure Platform",
+    description: "Verified users and secure transactions build trust and make property renting safe and reliable.",
+  },
+];
 
 const Overview = () => {
   return (
-    <div className="overview-container" id="overview">
-      <div className="overview-wrapper">
-        <div className="overview-content">
-          <div className="overview-header">
-            <h2 className="overview-title">About RentEasyGo</h2>
-            <p className="overview-subtitle">
-              RentEasyGo is a modern rental marketplace designed to simplify how people rent and list properties. 
-              Our platform connects renters and landlords through a transparent bidding system, ensuring fairness, 
-              speed, and genuine interest on both sides.
-            </p>
-          </div>
-          
-          <div className="overview-features">
-            <div className="overview-feature">
-              <div className="feature-icon">⚡</div>
-              <div className="feature-content">
-                <h3>Fast & Efficient</h3>
-                <p>Unlike traditional rental apps that rely on slow communication and unverified interest, RentEasyGo uses a secure, pay-to-bid model to ensure only serious renters participate.</p>
-              </div>
-            </div>
-            
-            <div className="overview-feature">
-              <div className="feature-icon">🎯</div>
-              <div className="feature-content">
-                <h3>Fair Competition</h3>
-                <p>Save time for landlords and provide equal opportunity for everyone through our transparent bidding system.</p>
-              </div>
-            </div>
-            
-            <div className="overview-feature">
-              <div className="feature-icon">🔒</div>
-              <div className="feature-content">
-                <h3>Secure Platform</h3>
-                <p>Build trust through verified users and secure transactions, making property renting safe and reliable.</p>
-              </div>
-            </div>
-          </div>
+    <section className="overview-section" id="overview">
+      <div className="overview-inner">
+        <motion.header className="overview-head" {...fadeInUp}>
+          <p className="overview-label">About</p>
+          <h2 className="overview-heading">
+            RentEasyGo is a modern rental marketplace that connects renters and landlords through transparent bidding—fair, fast, and built on genuine interest.
+          </h2>
+        </motion.header>
+
+        <div className="overview-grid">
+          {overviewItems.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <motion.article key={index} className="overview-item" {...fadeInUp}>
+                <span className="overview-icon-wrap" aria-hidden>
+                  <Icon className="overview-icon" size={22} strokeWidth={1.75} />
+                </span>
+                <h3 className="overview-item-title">{item.title}</h3>
+                <p className="overview-item-desc">{item.description}</p>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

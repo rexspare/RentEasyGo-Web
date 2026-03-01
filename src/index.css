@@ -1,109 +1,149 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 
 :root {
-  /* Core Colors */
-  --white: #FFFFFF;
-  /* Standard white for text or backgrounds */
-  --black: #000000;
-  /* Standard black for text or contrast */
-
-  /* Brand Colors */
-  --blue: #5E8BB1;
-  /* Muted sky blue – use for secondary buttons or highlights */
-  --purple: #48719E;
-  /* Indigo-leaning purple – can complement the blue for depth */
-
-  /* Background & Surface */
-  --nav-background: #020617;
-  --background: #000000;
-  /* Deep navy – ideal for page background */
-  --lightblack: #123246;
-  /* Soft dark – good for card backgrounds or overlays */
-
-  /* Primary Accent Colors */
-  --primary: #55ADA1;
-  /* Bright cyan – for CTAs, links, or icons */
-  --primary2: #02758E;
-  /* Deeper cyan – for hover states, borders, or gradients */
+  /* Trust & professionalism palette */
+  --bg-primary: #0c0f14;
+  --bg-secondary: #141922;
+  --bg-elevated: #1a1f2e;
+  --bg-card: #161c28;
+  --surface: rgba(22, 28, 40, 0.85);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --text-primary: #f4f5f7;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --accent: #53AD9F;
+  --accent-hover: #49a394;
+  --accent-muted: rgba(83, 173, 159, 0.15);
+  --cta-bg: #53AD9F;
+  --cta-hover: #49a394;
+  --success: #10b981;
+  --error: #ef4444;
+  --white: #ffffff;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.3);
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --container-max: 1200px;
+  --section-padding: clamp(4rem, 8vw, 6rem);
 }
-
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
 }
 
 html {
-  background-color: var(--background);
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
 }
 
 body {
-  background-color: var(--background);
-  margin: 0;
-  padding: 0;
-  color: white;
-  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 600;
+  line-height: 1.25;
+}
 
 a {
   text-decoration: none;
   color: inherit;
-  line-height: 1;
   cursor: pointer;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
 }
 
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Container utility */
 .container-index {
-  padding-left: 10%;
-  padding-right: 10%;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: clamp(1rem, 5vw, 3rem);
+  padding-right: clamp(1rem, 5vw, 3rem);
 }
 
-.btn {
-  background: transparent;
-  color: var(--primary);
-  padding: 14px 25px;
-  font-size: 16px;
-  border: 2px solid var(--primary);
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  font-weight: 500;
-}
-
-.btn-row {
-  display: flex;
+/* Primary CTA button - prominent for sign-up/donate */
+.btn-cta-primary {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--cta-bg);
+  color: var(--white);
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  transition: background var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+  box-shadow: 0 4px 14px rgba(83, 173, 159, 0.35);
 }
 
-.btn:hover {
-  background: var(--primary);
-  color: var(--background);
+.btn-cta-primary:hover {
+  background: var(--cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(83, 173, 159, 0.4);
 }
 
-.animated-testimonials-name {
-  font-family: 'Space Grotesk', sans-serif;
+.btn-cta-primary:active {
+  transform: translateY(0);
 }
 
-.animated-testimonials-qoute {
-  font-family: 'Inter', sans-serif;
+/* Secondary/outline button */
+.btn-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--text-primary);
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid var(--border-strong);
+  border-radius: var(--radius-full);
+  transition: border-color var(--transition-base), background var(--transition-base), color var(--transition-base), transform var(--transition-base);
 }
 
+.btn-cta-secondary:hover {
+  border-color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
 
-/* ------ MEDIA QUERY ------ */
-
-@media (max-width:1400px) {
-
-  .container-index {
-    padding-left: 5%;
-    padding-right: 5%;
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
+}
 
-  .btn {
-    padding: 14px 22px;
-  }
-
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
