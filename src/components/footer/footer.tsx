@@ -25,7 +25,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/company/solto" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/company/solto-app" target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
             </li>
