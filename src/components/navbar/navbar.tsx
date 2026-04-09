@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
-import logo from '../../assets/images/logo-transparent.png';
+import logo from '../../assets/images/logo-text-white.png';
+import { CALENDLY_NEW_MEETING_URL } from '../../constants/links';
 import './navbar.css';
 
 const Navbar = () => {
@@ -20,7 +21,7 @@ const Navbar = () => {
       <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
         <div className="container-index nav-inner">
           <Link to="Hero-ID" smooth={true} offset={0} duration={800} className="nav-logo">
-            <img src={logo} alt="RentEasyGo" />
+            <img src={logo} alt="Solto" />
           </Link>
 
           <ul className="nav-menu">
@@ -46,7 +47,7 @@ const Navbar = () => {
 
           <div className="nav-cta">
             <a
-              href="https://calendly.com/renteasygo/new-meeting"
+              href={CALENDLY_NEW_MEETING_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -77,7 +78,7 @@ const Navbar = () => {
       <div className={`nav-drawer ${mobileOpen ? 'open' : ''}`}>
         <div className="nav-drawer-header">
           <Link to="Hero-ID" smooth={true} offset={0} duration={800} onClick={closeMobile}>
-            <img src={logo} alt="RentEasyGo" />
+            <img src={logo} alt="Solto" />
           </Link>
           <button type="button" className="nav-drawer-close" onClick={closeMobile} aria-label="Close menu">
             ×
@@ -104,7 +105,7 @@ const Navbar = () => {
           </li>
           <li className="nav-drawer-cta">
             <a
-              href="https://calendly.com/renteasygo/new-meeting"
+              href={CALENDLY_NEW_MEETING_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMobile}

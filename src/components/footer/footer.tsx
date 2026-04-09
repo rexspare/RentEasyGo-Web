@@ -1,4 +1,5 @@
 import { Link } from 'react-scroll';
+import { CALENDLY_NEW_MEETING_URL } from "../../constants/links";
 import "./footer.css";
 
 const Footer = () => {
@@ -6,7 +7,7 @@ const Footer = () => {
     <footer className="footer-container">
       <div className="footer-content">
         <div className="footer-section">
-          <h3>RentEasyGo</h3>
+          <h3>Solto</h3>
           <p>Revolutionizing the rental experience with smart technology and seamless processes.</p>
         </div>
 
@@ -19,12 +20,12 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <a href="https://calendly.com/renteasygo/new-meeting" target="_blank" rel="noopener noreferrer">
+              <a href={CALENDLY_NEW_MEETING_URL} target="_blank" rel="noopener noreferrer">
                 Invest
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/company/rent-easy-go" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/company/solto" target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
             </li>
@@ -39,7 +40,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; 2025 RentEasyGo. All rights reserved.</p>
+        <p>&copy; 2025 Solto. All rights reserved.</p>
       </div>
     </footer>
   );

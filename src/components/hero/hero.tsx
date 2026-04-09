@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
+import { CALENDLY_NEW_MEETING_URL } from "../../constants/links";
 import "./hero.css";
+import logoText from "../../assets/images/logo-text-white.png";
 
 const Hero = () => {
   const [entered, setEntered] = useState(false);
@@ -14,7 +16,7 @@ const Hero = () => {
     <div className="hero-wrapper" id="Hero-ID">
       <div className="hero-bg" aria-hidden="true" />
       <div className={`hero-content ${entered ? 'hero-enter hero-enter-active' : 'hero-enter'}`}>
-        <h1 className="hero-title">RentEasyGo</h1>
+        <img src={logoText} alt="Solto" className="hero-logo" />
         <p className="hero-subtitle">
           Smarter, Faster, Fairer<br />Property Renting
         </p>
@@ -30,7 +32,7 @@ const Hero = () => {
           <button
             type="button"
             className="hero-cta-secondary"
-            onClick={() => window.open("https://calendly.com/renteasygo/new-meeting", "_blank", "noopener,noreferrer")}
+            onClick={() => window.open(CALENDLY_NEW_MEETING_URL, "_blank", "noopener,noreferrer")}
           >
             Become an Investor
           </button>

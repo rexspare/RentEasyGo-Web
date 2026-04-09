@@ -178,7 +178,7 @@ const WaitingList = () => {
                   <Check size={32} strokeWidth={2.5} />
                 </div>
                 <h2>You're on the list!</h2>
-                <p>Thank you for joining our waiting list. We'll notify you as soon as RentEasyGo is available in your area.</p>
+                <p>Thank you for joining our waiting list. We'll notify you as soon as Solto is available in your area.</p>
                 <button
                   type="button"
                   className="wl-success-cta"
@@ -282,7 +282,7 @@ const WaitingList = () => {
             <div className="wl-form-header">
               <p className="wl-form-label">Sign up</p>
               <h2 className="wl-form-heading">Join the Waitlist</h2>
-              <p className="wl-form-desc">Be among the first to experience the future of rental management. Get exclusive early access and priority updates when RentEasyGo launches.</p>
+              <p className="wl-form-desc">Be among the first to experience the future of rental management. Get exclusive early access and priority updates when Solto launches.</p>
             </div>
 
             <form className="wl-form" onSubmit={handleSubmit}>
@@ -368,7 +368,7 @@ const WaitingList = () => {
                   value={formData.comments}
                   onChange={handleInputChange}
                   className={errors.comments ? "error" : ""}
-                  placeholder="Share your thoughts about RentEasyGo, what features you'd like to see, or any questions you have..."
+                  placeholder="Share your thoughts about Solto, what features you'd like to see, or any questions you have..."
                   rows={4}
                 />
                 {errors.comments && <span className="wl-error">{errors.comments}</span>}
@@ -386,7 +386,7 @@ const WaitingList = () => {
                   <Lock size={18} strokeWidth={1.75} />
                 </span>
                 <p className="privacy-note">
-                  By joining our waitlist, you agree to receive updates about RentEasyGo.
+                  By joining our waitlist, you agree to receive updates about Solto.
                   We respect your privacy and will never share your information with third parties.
                 </p>
               </div>

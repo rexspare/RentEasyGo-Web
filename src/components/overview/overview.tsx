@@ -34,7 +34,7 @@ const Overview = () => {
         <motion.header className="overview-head" {...fadeInUp}>
           <p className="overview-label">About</p>
           <h2 className="overview-heading">
-            RentEasyGo is a modern rental marketplace that connects renters and landlords through transparent bidding—fair, fast, and built on genuine interest.
+            Solto is a modern rental marketplace that connects renters and landlords through transparent bidding—fair, fast, and built on genuine interest.
           </h2>
         </motion.header>
 

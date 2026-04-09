@@ -31,7 +31,7 @@ const Mockups = () => {
           transition={{ duration: 0.45, ease: "easeOut" }}
         >
           <p className="mockups-label">Preview</p>
-          <h2 className="mockups-heading">See RentEasyGo in action</h2>
+          <h2 className="mockups-heading">See Solto in action</h2>
           <p className="mockups-subtitle">
             Experience the future of rental management through our intuitive mobile interface
           </p>
